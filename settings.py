@@ -204,6 +204,9 @@ LOGGING = {
             'filters': ['require_debug_true'],
             'class': 'logging.StreamHandler',
         },
+        'null': {
+            'class': 'logging.NullHandler',
+        },
         #        'file': {
 #            'level': 'ERROR',
 #            'class': 'logging.FileHandler',
@@ -219,6 +222,10 @@ LOGGING = {
         'django.db.backends': {
             'level': 'DEBUG',
             'handlers': ['console'],
+        },
+        'django.security.DisallowedHost': {
+            'handlers': ['null'],
+            'propagate': False,
         },
     }
 }
